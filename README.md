@@ -107,3 +107,36 @@ This repository contains the documentation and design decisions for a high-perfo
 | **Wiring** | Wire | 12 AWG (Silicone coated preferred) |
 | **Connectors**| Connectors | XT90 (High Current) |
 | **Logic** | Arduino | Arduino Uno R3 |
+
+
+## VII. Electrical Wiring & Schematic
+
+A motion simulator is a high-current environment. Following this wiring schema ensures that the "Back-EMF" from the motors doesn't destroy your logic controllers or Power Supply.
+
+### 1. The Schematic Logic
+* **Control Path:** The **Arduino Uno** acts as the brain. It sends low-voltage PWM signals to the **IBT_2** drivers.
+* **Power Path:** The **24V 50A PSU** provides the "muscle." It is wired directly to the IBT_2 drivers using **12 AWG** wire.
+* **Protection Path:** Fuses and capacitors sit between the power and the drivers to act as a buffer and safety shut-off.
+
+### 2. Wiring Diagram
+
+| From (Source) | To (Destination) | Wire Type | Component/Note |
+| :--- | :--- | :--- | :--- |
+| **PSU (+) 24V** | IBT_2 (B+) | 12 AWG | **30A Inline Fuse** |
+| **PSU (-) GND** | IBT_2 (B-) | 12 AWG | Common Ground |
+| **IBT_2 (B+/B-)** | **Capacitor** | Pre-soldered | **10,000uF 35V** (Across Terminals) |
+| **IBT_2 (M+/M-)** | **Motor** | 12 AWG | **XT90/XT60 Connectors** |
+| **Arduino Pin 8/9** | IBT_2 (L/R_PWM) | Dupont | PWM Control Signals |
+| **Potentiometer** | Arduino (A0/A1) | Shielded | Feedback Loop |
+
+### 3. Critical Component: The Capacitor "Buffer"
+One of the most important decisions in this build was placing the **35V 10,000uF capacitors** directly across the IBT_2 input screws.
+
+* **The Problem:** When the 350W motors stop suddenly, they generate a massive reverse voltage spike (Back-EMF).
+* **The Solution:** The capacitor acts like a "sponge," absorbing that spike before it can travel back to the Power Supply. Without this, the PSU will likely enter "Protection Mode" and shut down the rig mid-flight.
+
+### 4. Connection Standards
+To prevent electrical fires or signal noise, we use:
+* **Ferrules:** All 12 AWG wires going into the IBT_2 screw terminals are crimped with **4mm² ferrules**. This provides a solid mechanical connection that won't vibrate loose.
+* **Shielded Cable:** The wires for the potentiometers (feedback) are shielded to prevent "EMI" from the high-power motor cables from interfering with the position signal.
+
