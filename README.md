@@ -68,3 +68,24 @@ This repository contains the documentation and design decisions for a high-perfo
 | **Motors** | 24V 350W 120RPM | Speed for rapid sim effects |
 | **Protection** | 10,000uF Capacitors | Absorbs back-EMF voltage spikes |
 | **Connectors** | XT90 / XT60 | Secure, high-current handling |
+
+
+---
+
+## VI. Bill of Materials (Shopping List)
+
+| Category | Item | Specification |
+| :--- | :--- | :--- |
+| **Mechanical** | U-Joint | Industrial Flanged (212/1310) |
+| **Mechanical** | Motors | 2x 24V 350W 120RPM (17mm Shaft) |
+| **Hardware** | Profiles | 4040 (Base) & 4080 (Uprights) |
+| **Hardware** | Bolts | DIN 7380F M8 Flanged |
+| **Electrical** | PSU | 24V 50A 1200W |
+| **Electrical** | Drivers | 2x IBT_2 (BTS7960) |
+| **Electrical** | Protection | 2x 35V 10,000uF Capacitors |
+| **Wiring** | Wire | 12 AWG (Silicone coated preferred) |
+| **Connectors**| Connectors | XT90 (High Current) |
+| **Logic** | Arduino | Arduino Uno R3 |
+
+
+
