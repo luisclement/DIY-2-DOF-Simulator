@@ -88,4 +88,94 @@ This repository contains the documentation and design decisions for a high-perfo
 | **Logic** | Arduino | Arduino Uno R3 |
 
 
+# DIY 2-DOF Motion Simulator: "The Seat Mover" Build Guide
+
+This repository serves as a comprehensive build guide and documentation for a 2-DOF (Degree of Freedom) motion simulator. This design is optimized for high-intensity flight, space, and racing simulations, specifically designed for VR immersion.
+
+---
+
+## 1. Mechanical Design & Logic
+The primary goal of this build was to create a "Seat Mover" that provides realistic G-force cues with high speed and precision.
+
+### The "Seat Mover" Philosophy
+* **The Decision:** We chose a design where the motors are mounted behind the seat, pushing and pulling at shoulder height.
+* **The Reasoning:** Most DIY builds try to move the whole platform from the base. By acting on the back of the seat, we gain a massive mechanical advantage (leverage). This allows the motors to respond faster to game telemetry, providing sharper cues for turbulence or gear shifts without straining the hardware.
+* **Integrated Platform:** We decided on a "closed-top" unit. The seat, pedals, and HOTAS/Wheel are all bolted to the same moving frame.
+    * *Teaching Tip:* In VR, if your seat moves but your hands and feet stay stationary, the immersion is broken. Keeping everything on the moving platform ensures your body and controls are always in sync.
+
+### The Pivot: Industrial Flanged U-Joint
+* **The Decision:** Use a **Flanged Industrial Joint (212/1310)**.
+* **The Reasoning:** Unlike automotive steering joints which require custom welding, an industrial flanged joint can be bolted directly to aluminum profiles. This provides a rock-solid center of rotation and simplifies the assembly.
+
+
+
+---
+
+## 2. Hardware & Frame Specs
+To handle the high torque of 350W motors, the frame must be extremely rigid.
+
+### Profile Selection (4040 & 4080)
+* **The Decision:** Use 4040 profiles for the general frame, but **4080 (80mm x 40mm)** for the vertical gantry uprights.
+* **The Reasoning:** The vertical uprights handle the most "push-pull" force from the motors. Standard 4040 can flex under high load; 4080 ensures that every bit of motor energy goes into moving the seat, not bending the aluminum.
+
+### Fasteners: DIN 7380F
+* **The Decision:** Use **DIN 7380F (Flanged Button Head)** M8 bolts.
+* **The Reasoning:** The integrated flange acts as a built-in washer, distributing the clamping force over a wider area of the profile slot. This prevents the rig from rattling loose over time due to constant vibrations.
+
+---
+
+## 3. Electrical System & Safety
+Electrical reliability is critical. We designed this system to handle high current and protect against "Back-EMF."
+
+### Motors & Power
+* **Motors:** **24V 350W 120RPM Brushed DC Motors** (17mm keyed shaft).
+    * *Reasoning:* 120 RPM provides the necessary speed for "washout" effects and rapid vibration, while still maintaining enough torque to move a full-grown adult.
+* **Power Supply:** **24V 50A (1200W)**.
+    * *Reasoning:* When motors reverse direction instantly, they draw massive "inrush" current. A 50A PSU ensures the system doesn't shut down during aggressive maneuvers.
+
+### The "Capacitor Rule"
+* **The Decision:** Install **35V 10,000uF capacitors** directly across the **+ and - input terminals** of each IBT_2 driver.
+* **The Reasoning:** Brushed motors act as generators when pushed. This sends voltage spikes back through the wires. These capacitors "catch" those spikes before they can travel back and damage your power supply.
+
+
+
+---
+
+## 4. Wiring & Connectivity
+* **Wire Gauge:** **12 AWG** for all power paths to prevent heat and voltage drop.
+* **Connectors:** **XT60 or XT90** between drivers and motors for a secure, high-current connection.
+* **Ferrules:** Always use **4mm² (AWG 12) wire ferrules** for terminal blocks.
+    * *Teaching Tip:* You must **crimp** these ferrules. Never solder them. Solder makes the wire brittle; a crimp stays flexible and can handle the constant vibration of the rig without snapping.
+
+---
+
+## 5. Software & Control
+* **Controller:** **Arduino Uno** running **SMC3 Firmware**.
+* **Drivers:** Two **IBT_2 (BTS7960)** boards.
+* **Function:** The Arduino receives telemetry from the PC (via SimTools or FlyPT Mover) and translates it into PWM signals for the motors.
+
+---
+
+## 6. Aluminum Profile BOM & Cut List
+
+### Moving Platform (Top Frame)
+| Part Name | Profile Type | Length | Qty | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Side Rails** | 4040 | 1400mm | 2 | Main longitudinal frame |
+| **Cross Members** | 4040 | 500mm | 3 | Front, Mid, and Pivot support |
+| **Gantry Uprights**| 4080 | 600mm | 2 | Rod attachment at shoulder height |
+| **Gantry Cross** | 4040 | 500mm | 1 | Connects the top of the 4080s |
+
+### Fixed Base (Bottom Frame)
+| Part Name | Profile Type | Length | Qty | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Base Rails** | 4040 | 1000mm | 2 | Main floor contact rails |
+| **Base Cross** | 4040 | 580mm | 3 | Front, Mid (Pivot), and Motor mounts |
+
+### Hardware Summary
+* **4040 Profile:** ~7.5 Meters total.
+* **4080 Profile:** ~1.2 Meters total.
+* **L-Brackets:** 20x for 4040 joints, 4x for 4080 joints.
+* **Bolts:** M8 DIN 7380F (16mm length recommended for brackets).
+
 
