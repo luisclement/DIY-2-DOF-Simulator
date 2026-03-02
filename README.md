@@ -147,6 +147,10 @@ Seat Height: Elevate the seat roughly 22cm above the platform rails to create a 
 Seat Recline: Backrest at ~27°; seat base tilted ~7° upward for GT3-style comfort.
 
 Pedal Setup (Fanatec CSL): Angle the pedals at 18°–20° using a custom 4040 wedge.
+Vertical Height Offset
+Because your seat is at +22cm, I recommend mounting the back of your pedal tray (the end closest to you) on 100mm-120mm risers, and the front of the tray (the end furthest from you) on 160mm-180mm risers.
+
+The Benefit: This creates the incline and raises your heels. In a motion rig, you want your heels to be roughly 10cm below your "hip point" (the bottom of your seat). This "shallow" seating position keeps you locked into the seat bucket during high-pitch motion.
 
 Reasoning: For your height, angling the pedals prevents ankle strain and ensures your legs maintain a proper bend to absorb motion shocks.
 
