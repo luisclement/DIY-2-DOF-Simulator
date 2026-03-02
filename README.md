@@ -105,7 +105,7 @@ This repository contains the documentation and design decisions for a high-perfo
 | **Electrical** | Drivers | 2x IBT_2 (BTS7960) |
 | **Electrical** | Protection | 2x 35V 10,000uF Capacitors |
 | **Wiring** | Wire | 12 AWG (Silicone coated preferred) |
-| **Connectors**| Connectors | XT90 (High Current) |
+| **Connectors**| Connectors | XT60 (High Current) |
 | **Logic** | Arduino | Arduino Uno R3 |
 
 
@@ -139,4 +139,14 @@ One of the most important decisions in this build was placing the **35V 10,000uF
 To prevent electrical fires or signal noise, we use:
 * **Ferrules:** All 12 AWG wires going into the IBT_2 screw terminals are crimped with **4mm² ferrules**. This provides a solid mechanical connection that won't vibrate loose.
 * **Shielded Cable:** The wires for the potentiometers (feedback) are shielded to prevent "EMI" from the high-power motor cables from interfering with the position signal.
+
+## VIII. Ergonomics & Layout (1.73m Pilot)
+Seating & Pedals
+Seat Height: Elevate the seat roughly 22cm above the platform rails to create a proper "command" seating position.
+
+Seat Recline: Backrest at ~27°; seat base tilted ~7° upward for GT3-style comfort.
+
+Pedal Setup (Fanatec CSL): Angle the pedals at 18°–20° using a custom 4040 wedge.
+
+Reasoning: For your height, angling the pedals prevents ankle strain and ensures your legs maintain a proper bend to absorb motion shocks.
 
