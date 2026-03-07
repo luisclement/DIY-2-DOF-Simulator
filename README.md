@@ -14,7 +14,6 @@ This repository contains the documentation and design decisions for a high-perfo
 * [cite_start]**Decision:** Use a **Flanged Industrial Joint (212/1310)**[cite: 129].
 * [cite_start]**Reasoning:** Industrial flanged joints are superior to automotive steering joints because they feature flat mounting surfaces[cite: 112]. [cite_start]This allows them to be bolted directly to aluminum profiles, ensuring a rigid center of gravity and removing the need for complex custom welding[cite: 114].
 
-
 ---
 
 ## 2. Hardware & Frame Specs
@@ -153,4 +152,21 @@ Because your seat is at +22cm, I recommend mounting the back of your pedal tray 
 The Benefit: This creates the incline and raises your heels. In a motion rig, you want your heels to be roughly 10cm below your "hip point" (the bottom of your seat). This "shallow" seating position keeps you locked into the seat bucket during high-pitch motion.
 
 Reasoning: For your height, angling the pedals prevents ankle strain and ensures your legs maintain a proper bend to absorb motion shocks.
+
+
+## IX. Lever Arm Optimization (80mm vs 60mm)
+
+The choice of an **80mm lever** was made to balance the requirements of both High-Velocity Racing and High-Angle Flight Simulation.
+
+### 1. The Decision: 80mm Effective Length
+* **Flight Logic:** Provides the maximum degrees of pitch (tilt) required for sustained climb and dive sensations in flight sims.
+* **Racing Logic:** Delivers the high-frequency "snap" needed for gear shifts and curb strikes.
+
+### 2. Compensation for Torque Demand
+Because an 80mm lever places higher stress on the motor gearbox, the rig design compensates by:
+1. Using **600mm vertical pillars** for high mechanical leverage.
+2. Lowering seat risers to **160mm** to bring the Center of Gravity closer to the pivot.
+3. Utilizing **30A fuses and 63V capacitors** to manage the resulting electrical spikes (Back-EMF).
+
+
 
