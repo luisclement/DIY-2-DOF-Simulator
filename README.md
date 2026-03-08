@@ -37,8 +37,8 @@ This repository contains the documentation and design decisions for a high-perfo
 * **Reasoning:** Motion rigs experience massive current "spikes" when motors instantly change direction. [cite_start]A 50A supply provides enough "headroom" so the system doesn't shut down or brown out during aggressive maneuvers[cite: 162, 167].
 
 ### Safety: The "Capacitor Fix"
-* [cite_start]**Decision:** **35V 10,000uF capacitors** placed directly across the **+ and - input terminals** of each IBT_2 motor driver[cite: 180, 208].
-* [cite_start]**Reasoning:** Brushed motors act as generators when they are pushed by the weight of the rig (Regenerative Braking)[cite: 177, 180]. This sends voltage spikes back toward the electronics. [cite_start]Placing large capacitors at the IBT_2 inputs "catches" these spikes immediately, protecting the power supply and the motor drivers from being fried[cite: 210].
+* **Decision:** **63V 10,000uF capacitors** 
+* **Reasoning:** Brushed motors act as generators when they are pushed by the weight of the rig (Regenerative Braking). This sends voltage spikes back toward the electronics. [cite_start]Placing large capacitors at the IBT_2 inputs "catches" these spikes immediately, protecting the power supply and the motor drivers from being fried[cite: 210].
 
 
 ---
@@ -123,7 +123,7 @@ A motion simulator is a high-current environment. Following this wiring schema e
 | :--- | :--- | :--- | :--- |
 | **PSU (+) 24V** | IBT_2 (B+) | 12 AWG | **30A Inline Fuse** |
 | **PSU (-) GND** | IBT_2 (B-) | 12 AWG | Common Ground |
-| **IBT_2 (B+/B-)** | **Capacitor** | Pre-soldered | **10,000uF 35V** (Across Terminals) |
+| **IBT_2 (B+/B-)** | **Capacitor** | Pre-soldered | **10,000uF 63V** (Across Terminals) |
 | **IBT_2 (M+/M-)** | **Motor** | 12 AWG | **XT90/XT60 Connectors** |
 | **Arduino Pin 8/9** | IBT_2 (L/R_PWM) | Dupont | PWM Control Signals |
 | **Potentiometer** | Arduino (A0/A1) | Shielded | Feedback Loop |
