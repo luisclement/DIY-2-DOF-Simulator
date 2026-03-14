@@ -168,5 +168,14 @@ Because an 80mm lever places higher stress on the motor gearbox, the rig design 
 2. Lowering seat risers to **160mm** to bring the Center of Gravity closer to the pivot.
 3. Utilizing **30A fuses and 63V capacitors** to manage the resulting electrical spikes (Back-EMF).
 
+## X. Motion Range & Degrees of Freedom
+
+The rig is mechanically tuned to provide a high range of motion while maintaining motor efficiency.
+
+* **Pitch (Forward/Back):** +/- 16° to 18° from center.
+* **Roll (Left/Right):** +/- 16° to 18° from center.
+* **The Logic:** This range exceeds the industry standard for GT3 racing (typically 8°-10°) and provides sufficient displacement for sustained G-force simulation in flight and space maneuvers. 
+* **Safety Limit:** Hardware limits are set to 18° to prevent the 80mm levers from entering a mechanical "lock-out" or "cam-over" state.
+
 
 
