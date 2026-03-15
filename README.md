@@ -6,24 +6,24 @@ This repository contains the documentation and design decisions for a high-perfo
 
 ## 1. Mechanical Design Decisions
 ### The "Seat Mover" Configuration
-* [cite_start]**Decision:** We chose a **"Seat Mover"** design where the motors are mounted at the base and push/pull against the back of the seat at shoulder height[cite: 5, 145].
-* **Reasoning:** Unlike full-platform movers, moving only the seat provides a more intense feeling of G-forces and weight transfer. [cite_start]By mounting the rods at shoulder height, we gain a massive mechanical advantage (leverage), allowing the motors to move the user with less strain and higher speed[cite: 144, 145].
-* [cite_start]**Integrated Platform:** I decided to make the moving platform long enough to hold the pedals, HOTAS, and wheel together as one "closed-top" unit[cite: 129, 131]. [cite_start]This ensures that your controls stay in the same position relative to your body as the seat moves, which is vital for immersion, especially in VR[cite: 78, 104].
+***Decision:** We chose a **"Seat Mover"** design where the motors are mounted at the base and push/pull against the back of the seat at shoulder height.
+* **Reasoning:** Unlike full-platform movers, moving only the seat provides a more intense feeling of G-forces and weight transfer. By mounting the rods at shoulder height, we gain a massive mechanical advantage (leverage), allowing the motors to move the user with less strain and higher speed.
+* ]**Integrated Platform:** I decided to make the moving platform long enough to hold the pedals, HOTAS, and wheel together as one "closed-top" unit]. This ensures that your controls stay in the same position relative to your body as the seat moves, which is vital for immersion, especially in VR.
 
 ### The Pivot (U-Joint)
-* [cite_start]**Decision:** Use a **Flanged Industrial Joint (212/1310)**[cite: 129].
-* [cite_start]**Reasoning:** Industrial flanged joints are superior to automotive steering joints because they feature flat mounting surfaces[cite: 112]. [cite_start]This allows them to be bolted directly to aluminum profiles, ensuring a rigid center of gravity and removing the need for complex custom welding[cite: 114].
+* **Decision:** Use a **Flanged Industrial Joint (212/1310)**.
+***Reasoning:** Industrial flanged joints are superior to automotive steering joints because they feature flat mounting surfaces.This allows them to be bolted directly to aluminum profiles, ensuring a rigid center of gravity and removing the need for complex custom welding[cite: 114].
 
 ---
 
 ## 2. Hardware & Frame Specs
 ### Aluminum Profiles
-* [cite_start]**Decision:** A mix of **4040** and **4080** T-slot aluminum profiles[cite: 129].
-* [cite_start]**Reasoning:** While 4040 is perfect for the base and platform rails, I chose **4080 (80mm x 40mm)** specifically for the **Gantry Uprights** behind the seat[cite: 147]. These uprights handle the most torque and force from the motor rods; [cite_start]4080 ensures the frame is stiff enough to prevent "flex," which would otherwise absorb the motion cues and make the rig feel "mushy"[cite: 147].
+* **Decision:** A mix of **4040** and **4080** T-slot aluminum profiles[cite: 129].
+***Reasoning:** While 4040 is perfect for the base and platform rails, I chose **4080 (80mm x 40mm)** specifically for the **Gantry Uprights** behind the seat[cite: 147]. These uprights handle the most torque and force from the motor rods; 4080 ensures the frame is stiff enough to prevent "flex," which would otherwise absorb the motion cues and make the rig feel "mushy".
 
 ### Fasteners
-* [cite_start]**Decision:** **DIN 7380F (Flanged Button Head)** M8 bolts[cite: 155].
-* [cite_start]**Reasoning:** These bolts were chosen because the integrated flange acts like a built-in washer[cite: 155]. [cite_start]This provides a wider surface area to apply torque against the aluminum profile, ensuring the rig doesn't rattle loose during high-vibration flight maneuvers[cite: 156].
+***Decision:** **DIN 7380F (Flanged Button Head)** M8 bolts[cite: 155].
+**Reasoning:** These bolts were chosen because the integrated flange acts like a built-in washer[cite: 155]. [cite_start]This provides a wider surface area to apply torque against the aluminum profile, ensuring the rig doesn't rattle loose during high-vibration flight maneuvers.
 
 ---
 
