@@ -192,6 +192,8 @@ The rig is mechanically tuned to provide a high range of motion while maintainin
 
 ## XI. Post-Assembly Validation (SMC3)
 
+(Note the git for SMC3 is: https://github.com/SimulatorMotorController/SMC3Utils)
+
 **! Important if testiing via SMC3 and the motors spins and stops check if the rotation of the motor and the potentiometer are in the same direction, if not will not work. To fix just reverse the motor cables as they are not polarity, just will drive the motors in one or another dircetion!**
 
 The motion system has been successfully commissioned and verified via closed-loop PID control.
