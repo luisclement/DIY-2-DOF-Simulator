@@ -52,9 +52,22 @@ This repository contains the documentation and design decisions for a high-perfo
 ---
 
 ## 5. Software Control
-* [cite_start]**Controller:** **Arduino Uno**[cite: 203].
-* [cite_start]**Motor Drivers:** Two **IBT_2 (BTS7960)** boards[cite: 203].
-* [cite_start]**Logic:** The Arduino runs firmware (like SMC3) to receive telemetry from the PC and translate it into PWM signals for the IBT_2 drivers[cite: 203]. [cite_start]This setup allows for fine-tuning the "PID" (Proportional-Integral-Derivative) to ensure the seat moves smoothly without overshooting its target[cite: 203].
+* **Controller:** **Arduino Uno**[cite: 203].
+* **Motor Drivers:** Two **IBT_2 (BTS7960)** boards[cite: 203].
+* **Logic:** The Arduino runs firmware (like SMC3) to receive telemetry from the PC and translate it into PWM signals for the IBT_2 drivers[cite: 203]. [cite_start]This setup allows for fine-tuning the "PID" (Proportional-Integral-Derivative) to ensure the seat moves smoothly without overshooting its target[cite: 203].
+
+## 5.a Software Stack & Integration
+
+The rig utilizes a dual-software approach to maximize telemetry resolution and peripheral support.
+
+1. **Motion Engine: SimTools**
+   * **Role:** Telemetry extraction and motor positioning.
+   * **Interface:** Communicates with the Arduino via the SMC3 (Mode 2) protocol.
+   * **Logic:** Configured with specific "Washout" filters for Flight Simming to protect the 350W motors during sustained banking/climbing maneuvers.
+
+2. **Haptics & Dash: SimHub**
+   * **Role:** Drives auxiliary systems (Dashboards, Wind Simulation, Bass Shakers).
+   * **Logic:** Synchronized with SimTools via UDP relay to ensure zero-latency across all feedback systems.
 
 ---
 
