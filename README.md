@@ -190,5 +190,27 @@ The rig is mechanically tuned to provide a high range of motion while maintainin
 * **The Logic:** This range exceeds the industry standard for GT3 racing (typically 8°-10°) and provides sufficient displacement for sustained G-force simulation in flight and space maneuvers. 
 * **Safety Limit:** Hardware limits are set to 18° to prevent the 80mm levers from entering a mechanical "lock-out" or "cam-over" state.
 
+## XI. Post-Assembly Validation (SMC3)
+
+! Important if testiing via SMC3 and the motors spins and stops check if the rotation of the motor and the potentiometer are in the same direction, if not will not work. To fix just reverse the motor cables as they are not polarity, just will drive the motors in one or another dircetion!
+
+The motion system has been successfully commissioned and verified via closed-loop PID control.
+
+### 1. Polarity Verification
+* **Confirmed:** Motor M+/M- leads oriented to match Potentiometer feedback direction.
+* **State:** Stable Negative Feedback achieved. Target (Blue) and Feedback (Green) lines show <1% tracking error.
+
+### 2. The Dynamic Sine Test
+To verify mechanical clearance of the 80mm levers:
+* **Pattern:** Sine Wave.
+* **Frequency:** 0.5Hz.
+* **Observation:** Verified zero mechanical interference between the 160mm pivot stack and the 4080 gantry uprights at +/- 18° of pitch.
+* **Thermal Log:** IBT_2 drivers maintained stable temperatures under 24V/350W load with 30A inline fuse protection.
+
+### 3. Tuning Profile (Current)
+* **Kp:** 420 (High torque response)
+* **Kd:** 40 (Damping for 80mm lever inertia)
+* **Deadzone:** 3 (EMI noise suppression)
+
 
 
