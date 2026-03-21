@@ -214,5 +214,22 @@ To verify mechanical clearance of the 80mm levers:
 * **Kd:** 40 (Damping for 80mm lever inertia)
 * **Deadzone:** 3 (EMI noise suppression)
 
+### 4. How to test each motor with SMC3
+* Disconnect the motor power supply
+* Make sure Simtools is not running – we’re not ready for that yet!
+* Wire up the Arduino (with SMC3 installed) to your H-Bridges and connect to your computer via USB
+* Run the Windows SMC3 Utility software and make sure it communicates with the Arduino (There is no need to set baud rates, they are not configurable)
+* Set the Kp, Ki, Kd, PWMmin, PWMmax, PWMrev to 0 for ALL motors (This will make sure the motors don’t move)
+* Set Clip to 255 (you need to do this first) and Limit to 255 (This will give you plenty of margin if something goes wrong while setting up)
+* Turn on the power to your motors – nothing should move at this stage!
+* Set Kp to about 400
+* Now slowly, increase PWMmax… at some point the motor should start to move. When it does check the “Green” feedback line is moving toward the “Blue” target position.
+* If it is then that motor and feedback is wired correctly - proceed to test other motors.
+* If it is moving away turn off motor power immediately (or quickly reduce PWMmax again). In this case you need to either reverse the wires to the motor being tested –OR– reverse the +5V and GND wires to your feedback pot for the motor being tested (do not do both). Restart the test from the beginning.
+* Do the above for each motor
+
+* <img width="1510" height="915" alt="Screenshot 2026-03-21 220130" src="https://github.com/user-attachments/assets/7afce373-878a-4a7a-a292-15dd86c36142" />
+
+
 
 
