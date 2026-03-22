@@ -1,6 +1,6 @@
 # 2-DOF Motion Simulator: The "Platform Mover" Build Guide
 
-This repository contains the documentation and design decisions for a high-performance, DIY 2-DOF (Degree of Freedom) motion simulator, specifically optimized for flight and space simulations (VR-ready). The estimated cost of building one yourself will fall around 1600 EUR for total material and will give a very solid biuld solution, full aluminum profiles, fully adjustable and customizable, rock solid with about Combined Rated Torque: 22 N.m and Combined Peak Torque: ~45 N.m.
+This repository contains the documentation and design decisions for a high-performance, DIY 2-DOF (Degree of Freedom) motion simulator, specifically optimized for flight and space simulations (VR-ready). The estimated cost of building one yourself will fall around 1600 EUR for total material and will give a very solid biuld solution, full aluminum profiles, fully adjustable and customizable, rock solid with about Combined Rated Torque: 22 N.m and Combined Peak Torque: ~45 N.m. Mechanical Advantage: The 80mm lever choice prioritizes high-frequency response (road texture/vibrations) over raw lifting capacity, making it ideal for GT3 and Formula style simulation where rapid weight transfer cues are essential.
 
 # If you would like to buy a complete solution from me and you are in Europe (France) just send me an email at: luisclement@gmail.com
 
