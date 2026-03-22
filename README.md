@@ -1,4 +1,4 @@
-# 2-DOF Motion Simulator: The "Seat Mover" Build Guide
+# 2-DOF Motion Simulator: The "Platform Mover" Build Guide
 
 This repository contains the documentation and design decisions for a high-performance, DIY 2-DOF (Degree of Freedom) motion simulator, specifically optimized for flight and space simulations (VR-ready).
 
