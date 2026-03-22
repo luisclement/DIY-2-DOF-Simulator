@@ -312,7 +312,7 @@ The motion platform is driven by dual 350W geared DC motors, optimized for high-
 * **Velocity:** Calculated at ~150mm/s at rated RPM.
 * **Mechanical Advantage:** The 80mm lever choice prioritizes high-frequency response (road texture/vibrations) over raw lifting capacity, making it ideal for GT3 and Formula style simulation where rapid weight transfer cues are essential.
 
-* ## XXXVII. Lever Centering & Range of Motion
+* ## XIII. Lever Centering & Range of Motion
 
 The system utilizes a "Horizontal Neutral" configuration to optimize motor torque and ensure linear telemetry response.
 
