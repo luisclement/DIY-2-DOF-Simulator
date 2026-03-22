@@ -1,6 +1,6 @@
 # 2-DOF Motion Simulator: The "Platform Mover" Build Guide
 
-This repository contains the documentation and design decisions for a high-performance, DIY 2-DOF (Degree of Freedom) motion simulator, specifically optimized for flight and space simulations (VR-ready).
+This repository contains the documentation and design decisions for a high-performance, DIY 2-DOF (Degree of Freedom) motion simulator, specifically optimized for flight and space simulations (VR-ready). The estimated cost of building one yourself will fall around 1600 EUR for total material and will give a very solid biuld solution, full aluminum profiles, fully adjustable and customizable, rock solid with about Combined Rated Torque: 22 N.m and Combined Peak Torque: ~45 N.m.
 
 # If you would like to buy a complete solution from me and you are in Europe (France) just send me an email at: luisclement@gmail.com
 
@@ -300,6 +300,17 @@ Max Limits = 255 / Clip Input = 255: Earlier you mentioned these stopped at 100,
 Fpwm = 35kHz: This is excellent. It keeps the motor noise above the range of human hearing, so you won't hear a high-pitched "ringing" from the motors.
 
 * <img width="1510" height="915" alt="Screenshot 2026-03-21 220130" src="https://github.com/user-attachments/assets/7afce373-878a-4a7a-a292-15dd86c36142" />
+
+## XII. Power & Kinematics Analysis
+
+The motion platform is driven by dual 350W geared DC motors, optimized for high-velocity seat-mover telemetry.
+
+* **Combined Rated Torque:** 22 N.m
+* **Combined Peak Torque:** ~45 N.m
+* **Lever Length:** 80mm (Center-to-Center)
+* **Effective Rated Force:** 275 Newtons (~28kg-f)
+* **Velocity:** Calculated at ~150mm/s at rated RPM.
+* **Mechanical Advantage:** The 80mm lever choice prioritizes high-frequency response (road texture/vibrations) over raw lifting capacity, making it ideal for GT3 and Formula style simulation where rapid weight transfer cues are essential.
 
 
 
