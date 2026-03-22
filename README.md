@@ -312,6 +312,21 @@ The motion platform is driven by dual 350W geared DC motors, optimized for high-
 * **Velocity:** Calculated at ~150mm/s at rated RPM.
 * **Mechanical Advantage:** The 80mm lever choice prioritizes high-frequency response (road texture/vibrations) over raw lifting capacity, making it ideal for GT3 and Formula style simulation where rapid weight transfer cues are essential.
 
+* ## XXXVII. Lever Centering & Range of Motion
+
+The system utilizes a "Horizontal Neutral" configuration to optimize motor torque and ensure linear telemetry response.
+
+### 1. Mechanical Center-Point
+* **Neutral Angle:** 0° (Horizontal / 9 o'clock position).
+* **Total Physical Arc:** 106° (From -46° Bottom to +60° Top).
+* **Operational Arc:** ~±20° from horizontal (Total 40° used for 100% SimTools output).
+
+### 2. Torque Efficiency
+By centering at 0°, the lever operates in the "Torque Peak" zone. This minimizes current draw on the IBT_2 drivers and reduces heat soak in the 350W motor windings when maintaining static pitch (e.g., long uphill climbs in Assetto Corsa).
+
+### 3. Safety Buffers
+Mechanical hard-stops are located at -46° and +60°. Software limits in SMC3 (Max Limits) are set to 20° below/above horizontal, providing a 26° "Crush Zone" to protect the 4080 frame and rod ends from collision during accidental runaway scenarios.
+
 
 
 
