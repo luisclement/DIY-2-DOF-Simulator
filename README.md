@@ -190,11 +190,11 @@ The rig is mechanically tuned to provide a high range of motion while maintainin
 * **The Logic:** This range exceeds the industry standard for GT3 racing (typically 8°-10°) and provides sufficient displacement for sustained G-force simulation in flight and space maneuvers. 
 * **Safety Limit:** Hardware limits are set to 18° to prevent the 80mm levers from entering a mechanical "lock-out" or "cam-over" state.
 
-## XI. Post-Assembly Validation (SMC3)
+## XI. Post-Assembly Motor Control Parameter Setting (SMC3)
 
 (Note the git for SMC3 is: https://github.com/SimulatorMotorController/SMC3Utils)
 
-**! Important if testiing via SMC3 and the motors spins and stops check if the rotation of the motor and the potentiometer are in the same direction, if not will not work. To fix just reverse the motor cables as they are not polarity, just will drive the motors in one or another dircetion!**
+**! Important if testing via SMC3 and the motors spins and stops check if the rotation of the motor and the potentiometer are in the same direction, if not will not work. To fix just reverse the motor cables as they are not polarity, just will drive the motors in one or another dircetion!**
 
 The motion system has been successfully commissioned and verified via closed-loop PID control.
 
@@ -202,19 +202,16 @@ The motion system has been successfully commissioned and verified via closed-loo
 * **Confirmed:** Motor M+/M- leads oriented to match Potentiometer feedback direction.
 * **State:** Stable Negative Feedback achieved. Target (Blue) and Feedback (Green) lines show <1% tracking error.
 
-### 2. The Dynamic Sine Test
-To verify mechanical clearance of the 80mm levers:
-* **Pattern:** Sine Wave.
-* **Frequency:** 0.5Hz.
-* **Observation:** Verified zero mechanical interference between the 160mm pivot stack and the 4080 gantry uprights at +/- 18° of pitch.
-* **Thermal Log:** IBT_2 drivers maintained stable temperatures under 24V/350W load with 30A inline fuse protection.
+## 2. Note: Control Logic Hierarchy
 
-### 3. Tuning Profile (Current)
-* **Kp:** 420 (High torque response)
-* **Kd:** 40 (Damping for 80mm lever inertia)
-* **Deadzone:** 3 (EMI noise suppression)
+It is vital to distinguish between the **Firmware Logic (SMC3)** and the **Telemetry Engine (SimTools)**.
 
-### 4. How to test and program each motor limits with SMC3 (Data will be stored in the Arduino)
+1. **SMC3 Utility (The "Bios"):** All PID and PWM parameters are stored on the Arduino's EEPROM. These settings dictate the motor's internal physics. Changes must be made in the SMC3 Utility *before* launching SimTools.
+2. **SimTools (The "Pilot"):** Only provides the target coordinates. It does not control motor torque or current limits.
+3. **Safety Protocol:** - PWMmax should be capped at 60% (150/255) during initial center-of-gravity testing.
+   - Max Limits must be set to ensure the 80mm lever never rotates into the 4080 frame members.
+
+### 3. How to test and program each motor limits with SMC3 (Data will be stored in the Arduino)
 * Disconnect the motor power supply
 * Make sure Simtools is not running – we’re not ready for that yet!
 * Wire up the Arduino (with SMC3 installed) to your H-Bridges and connect to your computer via USB
@@ -228,24 +225,11 @@ To verify mechanical clearance of the 80mm levers:
 * If it is moving away turn off motor power immediately (or quickly reduce PWMmax again). In this case you need to either reverse the wires to the motor being tested –OR– reverse the +5V and GND wires to your feedback pot for the motor being tested (do not do both). Restart the test from the beginning.
 * Do the above for each motor
 
-This could be the final but needs to start at safer base:
-PWMmax = 255: This is "Full Beast Mode." It means the Arduino is allowed to send 100% of your 24V power to the motors. For a first run with a hand-filed keyway and an unbalanced 130kg rig, this is dangerous. > Advice: Drop this to 150 until you've verified the mechanical limits.
-
-Kp = 420: This is very high gain. On a light seat-mover, it's fine. On a heavy Full-Frame rig, this might cause "Oscillation" (the whole rig shaking violently because it's trying to be too precise with a heavy weight).
-
-Max Limits = 255 / Clip Input = 255: Earlier you mentioned these stopped at 100, but your screenshot shows 255. If you can set them to 255, do it. It gives the software the most "room" to breathe.
-
-Fpwm = 35kHz: This is excellent. It keeps the motor noise above the range of human hearing, so you won't hear a high-pitched "ringing" from the motors.
-
-* <img width="1510" height="915" alt="Screenshot 2026-03-21 220130" src="https://github.com/user-attachments/assets/7afce373-878a-4a7a-a292-15dd86c36142" />
-
-* Try like these first:
-
-* ## XXXIII. SMC3 Configuration Profiles (v1.01)
+* ### 4. SMC3 Configuration Profiles (v1.01)
 
 These profiles are specifically tuned for a **Full-Frame Rig (~130kg)** utilizing **350W 24V Motors** and **80mm Levers**. 
 
-### 1. Profile: Commissioning & Safe Start
+### 5. Profile: Commissioning & Safe Start
 *Use this for initial mechanical testing, clearance checks, and finding the Center of Gravity (CoG).*
 
 | Parameter | Value | Description |
@@ -265,7 +249,7 @@ These profiles are specifically tuned for a **Full-Frame Rig (~130kg)** utilizin
 
 ---
 
-### 2. Profile: Performance & Final Target
+### 6. Profile: Performance & Final Target
 *Use this only after the rig is balanced, the keyway play is fixed, and the mechanical limits are verified.*
 
 | Parameter | Value | Description |
@@ -285,7 +269,7 @@ These profiles are specifically tuned for a **Full-Frame Rig (~130kg)** utilizin
 
 > **Note:** If the rig exhibits "hunting" (shaking at rest), increase the **Deadzone** or **Kd**. If the motors get hot while sitting still, the rig is likely out of balance on the U-joint.
 
-## Recommended Tuning Profiles (SMC3 v1.01)
+### 7. Recommended Tuning Profiles Summary (SMC3 v1.01)
 
 Due to the 130kg mass of the full-frame assembly and 80mm lever geometry, the following PID profiles are recommended.
 
@@ -301,14 +285,20 @@ Optimized for high-fidelity VR telemetry and rapid weight transfer.
 ### 3. PWM Frequency
 * **Fpwm:** 35kHz (Silent Operation). Setting lower than 20kHz may result in audible motor whine and reduced feedback resolution.
 
-## XXXII. Control Logic Hierarchy
+### 8. My docummnted final values
 
-It is vital to distinguish between the **Firmware Logic (SMC3)** and the **Telemetry Engine (SimTools)**.
+* This could be the final but needs to start at safer base:
+PWMmax = 255: This is "Full Beast Mode." It means the Arduino is allowed to send 100% of your 24V power to the motors. For a first run with a hand-filed keyway and an unbalanced 130kg rig, this is dangerous. > Advice: Drop this to 150 until you've verified the mechanical limits.
 
-1. **SMC3 Utility (The "Bios"):** All PID and PWM parameters are stored on the Arduino's EEPROM. These settings dictate the motor's internal physics. Changes must be made in the SMC3 Utility *before* launching SimTools.
-2. **SimTools (The "Pilot"):** Only provides the target coordinates. It does not control motor torque or current limits.
-3. **Safety Protocol:** - PWMmax should be capped at 60% (150/255) during initial center-of-gravity testing.
-   - Max Limits must be set to ensure the 80mm lever never rotates into the 4080 frame members.
+Kp = 420: This is very high gain. On a light seat-mover, it's fine. On a heavy Full-Frame rig, this might cause "Oscillation" (the whole rig shaking violently because it's trying to be too precise with a heavy weight).
+
+Max Limits = 255 / Clip Input = 255: Earlier you mentioned these stopped at 100, but your screenshot shows 255. If you can set them to 255, do it. It gives the software the most "room" to breathe.
+
+Fpwm = 35kHz: This is excellent. It keeps the motor noise above the range of human hearing, so you won't hear a high-pitched "ringing" from the motors.
+
+* <img width="1510" height="915" alt="Screenshot 2026-03-21 220130" src="https://github.com/user-attachments/assets/7afce373-878a-4a7a-a292-15dd86c36142" />
+
+
 
 
 
