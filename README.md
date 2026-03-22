@@ -2,6 +2,8 @@
 
 This repository contains the documentation and design decisions for a high-performance, DIY 2-DOF (Degree of Freedom) motion simulator, specifically optimized for flight and space simulations (VR-ready).
 
+# If you would like to buy a complete solution from me and you are in Europe (France) just send me an email at: luisclement@gmail.com
+
 ---
 
 ## 1. Mechanical Design Decisions
