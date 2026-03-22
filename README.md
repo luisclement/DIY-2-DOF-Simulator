@@ -239,6 +239,68 @@ Fpwm = 35kHz: This is excellent. It keeps the motor noise above the range of hum
 
 * <img width="1510" height="915" alt="Screenshot 2026-03-21 220130" src="https://github.com/user-attachments/assets/7afce373-878a-4a7a-a292-15dd86c36142" />
 
+* Try like these first:
+
+* ## XXXIII. SMC3 Configuration Profiles (v1.01)
+
+These profiles are specifically tuned for a **Full-Frame Rig (~130kg)** utilizing **350W 24V Motors** and **80mm Levers**. 
+
+### 1. Profile: Commissioning & Safe Start
+*Use this for initial mechanical testing, clearance checks, and finding the Center of Gravity (CoG).*
+
+| Parameter | Value | Description |
+| :--- | :--- | :--- |
+| **Kp** | 150 | Reduced gain to prevent violent initial jerks. |
+| **Ki** | 0 | Integral gain - always 0 for motion sims. |
+| **Kd** | 30 | Damping to handle frame inertia. |
+| **Ks** | 0 | Static friction - keep at 0 for now. |
+| **LPF** | 0 | Low Pass Filter - keep at 0 for tuning. |
+| **Deadzone** | 8 | High value to ignore play in hand-filed keyways. |
+| **PWMmin** | 0 | Minimum power - 0 for silent idle during testing. |
+| **PWMmax** | 80 | Safety ceiling (approx. 30% total power). |
+| **PWMrev** | 50 | Softens the impact of direction changes. |
+| **Fpwm** | 35kHz | High-frequency silent switching. |
+| **Max Limits**| 200 | Safety "virtual wall" (Adjust to 100 if using 0-100 scale). |
+| **Clip Input**| 255 | Full target range visibility. |
+
+---
+
+### 2. Profile: Performance & Final Target
+*Use this only after the rig is balanced, the keyway play is fixed, and the mechanical limits are verified.*
+
+| Parameter | Value | Description |
+| :--- | :--- | :--- |
+| **Kp** | 420 | High torque for rapid VR weight-transfer cues. |
+| **Ki** | 0 | Remains at 0 to avoid telemetry lag. |
+| **Kd** | 60 | High damping to stop the 130kg mass from oscillating. |
+| **Ks** | 0 | Static friction - leave at 0 unless "sticking" occurs. |
+| **LPF** | 0 | Filter - typically handled by SimTools instead. |
+| **Deadzone** | 3 | Tightens response; requires zero mechanical slop. |
+| **PWMmin** | 15 | Overcomes motor friction for micro-vibrations/road rumble. |
+| **PWMmax** | 255 | Full 24V power capability for high-G maneuvers. |
+| **PWMrev** | 100 | Sharp reversal for gear-shift "thumps." |
+| **Fpwm** | 35kHz | Silent operation. |
+| **Max Limits**| 255 | Maximum utilization of physical range. |
+| **Clip Input**| 255 | Maximum signal resolution. |
+
+> **Note:** If the rig exhibits "hunting" (shaking at rest), increase the **Deadzone** or **Kd**. If the motors get hot while sitting still, the rig is likely out of balance on the U-joint.
+
+## Recommended Tuning Profiles (SMC3 v1.01)
+
+Due to the 130kg mass of the full-frame assembly and 80mm lever geometry, the following PID profiles are recommended.
+
+### 1. Commissioning Profile (Safety-First)
+Used for mechanical clearance checks and U-joint balance verification.
+* Kp: 150 | Kd: 30 | PWMmax: 80 | Deadzone: 8
+
+### 2. Performance Profile (GT3/Formula)
+Optimized for high-fidelity VR telemetry and rapid weight transfer.
+* Kp: 420 | Kd: 60 | PWMmax: 255 | Deadzone: 3
+* **Note:** High Kd is required to dampen the inertial moment of the 4080 frame. If the rig vibrates at rest, increase Deadzone to compensate for mechanical backlash in the hand-filed motor-shaft interface.
+
+### 3. PWM Frequency
+* **Fpwm:** 35kHz (Silent Operation). Setting lower than 20kHz may result in audible motor whine and reduced feedback resolution.
+
 ## XXXII. Control Logic Hierarchy
 
 It is vital to distinguish between the **Firmware Logic (SMC3)** and the **Telemetry Engine (SimTools)**.
