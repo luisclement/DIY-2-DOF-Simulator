@@ -4,6 +4,9 @@ This repository contains the documentation and design decisions for a high-perfo
 
 # If you would like to buy a complete solution from me and you are in Europe (France) just send me an email at: luisclement@gmail.com
 
+<img width="1432" height="1042" alt="Screenshot 2026-03-22 084635" src="https://github.com/user-attachments/assets/bd7b52dd-cbab-406a-83d8-cb5b5ebc9c9e" />
+
+
 ---
 
 ## 1. Mechanical Design Decisions
