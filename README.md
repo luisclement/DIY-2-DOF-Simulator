@@ -226,6 +226,7 @@ It is vital to distinguish between the **Firmware Logic (SMC3)** and the **Telem
 * Do the above for each motor
 
 * ### 4. SMC3 Configuration Profiles (v1.01)
+* Detailed settings are here: https://github.com/luisclement/DIY-2-DOF-Simulator/blob/main/SMC3_Parameters_CheckList.md
 
 These profiles are specifically tuned for a **Full-Frame Rig (~130kg)** utilizing **350W 24V Motors** and **80mm Levers**. 
 
