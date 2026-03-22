@@ -5,9 +5,9 @@ This repository contains the documentation and design decisions for a high-perfo
 ---
 
 ## 1. Mechanical Design Decisions
-### The "Seat Mover" Configuration
-***Decision:** We chose a **"Seat Mover"** design where the motors are mounted at the base and push/pull against the back of the seat at shoulder height.
-* **Reasoning:** Unlike full-platform movers, moving only the seat provides a more intense feeling of G-forces and weight transfer. By mounting the rods at shoulder height, we gain a massive mechanical advantage (leverage), allowing the motors to move the user with less strain and higher speed.
+### The "Platform Mover" Configuration
+***Decision:** We chose a **"Platform Mover"** design where the motors are mounted at the base and push/pull against the back of the seat at shoulder height.
+* **Reasoning:** By mounting the rods at shoulder height, we gain a massive mechanical advantage (leverage), allowing the motors to move the user with less strain and higher speed.
 * ]**Integrated Platform:** I decided to make the moving platform long enough to hold the pedals, HOTAS, and wheel together as one "closed-top" unit]. This ensures that your controls stay in the same position relative to your body as the seat moves, which is vital for immersion, especially in VR.
 
 ### The Pivot (U-Joint)
