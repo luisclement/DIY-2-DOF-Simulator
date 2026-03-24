@@ -327,9 +327,24 @@ By centering at 0°, the lever operates in the "Torque Peak" zone. This minimize
 ### 3. Safety Buffers
 Mechanical hard-stops are located at -46° and +60°. Software limits in SMC3 (Max Limits) are set to 20° below/above horizontal, providing a 26° "Crush Zone" to protect the 4080 frame and rod ends from collision during accidental runaway scenarios.
 
+## XIVI. Sim Tools: Software Commissioning: The 100% Summation Rule
+
+
 * SIMTools working axis:
 <img width="927" height="506" alt="image" src="https://github.com/user-attachments/assets/2aec4761-6a5e-4ea2-ac75-dd7cb4aef0f6" />
 
+To maintain signal integrity on a 130kg full-frame rig, the 'Axis Assignment' matrix has been tuned to prevent digital clipping. 
+
+### 1. Signal Summation
+The total percentage of all DOFs (Degrees of Freedom) assigned to a single hardware Axis is capped at 100%. This prevents the PID controller from reaching a 'saturated' state where high-frequency telemetry (Heave/Surge) is lost during high-amplitude maneuvers (Pitch/Roll).
+
+### 2. Vector Mixing Logic
+* **Longitudinal (45%):** A 2:1 mix of Pitch (Degree) and Surge (Acceleration) provides both positional accuracy and tactile gear-shift feedback.
+* **Lateral (45%):** A 2:1 mix of Roll (Degree) and Sway (Acceleration) emulates centrifugal force.
+* **Vertical (10%):** Low-intensity Heave provides road texture while protecting the IBT-2 drivers from high-frequency thermal spikes.
+
+### 3. Phase Integrity
+Axis 2 utilizes inverted Roll and Sway values to achieve the necessary differential output for a 2DOF universal-joint pivot.
 
 
 
