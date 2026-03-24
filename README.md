@@ -346,12 +346,25 @@ The total percentage of all DOFs (Degrees of Freedom) assigned to a single hardw
 ### 3. Phase Integrity
 Axis 2 utilizes inverted Roll and Sway values to achieve the necessary differential output for a 2DOF universal-joint pivot.
 
-Motion Type,Current (Safe),Suggested (Immersive),Why?
-Pitch,30%,20%,"Less ""floaty"" on hills"
-Surge,15%,25%,"More ""kick"" on gear shifts"
-Roll,30%,15%,"Reduces the ""tippy"" boat feel"
-Sway,15%,30%,Better G-force simulation
-Heave,10%,10%,Keep it for road texture
+## LXXIII. Telemetry Configuration: Profile V2.0 (130kg Full-Frame)
+
+Following initial seat-trials, the telemetry mix has been shifted from 'Static-Angle' (Degree) dominance to 'Dynamic-Force' (Acceleration) dominance. This overcomes the high mechanical inertia of the 130kg frame and provides a sharper, more visceral racing experience.
+
+### 1. Motion Assignment Comparison
+
+| Motion Type | Current (Safe) | **Suggested (Immersive)** | Axis 2 (Suggested) | Engineering Justification |
+| :--- | :---: | :---: | :---: | :--- |
+| **Pitch** | 30% | **20%** | 20% | Reduces 'rocking chair' tilt on hills; saves motor travel. |
+| **Surge** | 15% | **25%** | 25% | Enhances gear-shift 'thump' and longitudinal braking 'jerk'. |
+| **Roll** | 30% | **15%** | -15% | Limits unrealistic leaning in long-duration corners. |
+| **Sway** | 15% | **30%** | -30% | Simulates immediate G-force 'snap' during steering input. |
+| **Heave** | 10% | **10%** | 10% | Provides road texture/vibration without over-working IBT-2s. |
+| **TOTAL** | **100%** | **100%** | **100%** | **Zero-Clipping limit maintained for signal integrity.** |
+
+### 2. Tuning Logic: The 'Race Car' vs. 'Boat' Feel
+* **Decreasing Pitch/Roll:** By lowering the 'Degree' based telemetry, the rig stays closer to the center of gravity, which reduces the strain on the 350W gearboxes.
+* **Increasing Sway/Surge:** By prioritizing 'Acceleration' based telemetry, the 130kg mass reacts to what the car is *doing* (shifting, turning) rather than where the car is *facing*. This provides a more professional 'short-throw' feel common in high-end industrial simulators.
+* **Axis 2 Inversion:** Lateral forces (Roll and Sway) remain inverted on Axis 2 to maintain the 2DOF differential pivot logic.
 
 
 
