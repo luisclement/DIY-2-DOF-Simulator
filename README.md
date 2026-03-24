@@ -329,7 +329,6 @@ Mechanical hard-stops are located at -46° and +60°. Software limits in SMC3 (M
 
 SIMTools working axis:
 <img width="931" height="509" alt="image" src="https://github.com/user-attachments/assets/7df1eb69-ec36-4d61-8bf6-49ddf3796e65" />
-<img width="931" height="509" alt="image" src="https://github.com/user-attachments/assets/7df1eb69-ec36-4d61-8bf6-49ddf3796e65" />
 
 
 
