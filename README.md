@@ -301,6 +301,10 @@ Fpwm = 35kHz: This is excellent. It keeps the motor noise above the range of hum
 
 * <img width="1510" height="915" alt="Screenshot 2026-03-21 220130" src="https://github.com/user-attachments/assets/7afce373-878a-4a7a-a292-15dd86c36142" />
 
+* My current working SMC3 profile:
+* <img width="747" height="449" alt="image" src="https://github.com/user-attachments/assets/9fd0b13d-6a97-4c1a-aadb-0c2e6ecbc143" />
+
+
 ## XII. Power & Kinematics Analysis
 
 The motion platform is driven by dual 350W geared DC motors, optimized for high-velocity seat-mover telemetry.
