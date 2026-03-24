@@ -327,7 +327,7 @@ By centering at 0°, the lever operates in the "Torque Peak" zone. This minimize
 ### 3. Safety Buffers
 Mechanical hard-stops are located at -46° and +60°. Software limits in SMC3 (Max Limits) are set to 20° below/above horizontal, providing a 26° "Crush Zone" to protect the 4080 frame and rod ends from collision during accidental runaway scenarios.
 
-## XIVI. Sim Tools: Software Commissioning: The 100% Summation Rule
+## XIV. Sim Tools: Software Commissioning: The 100% Summation Rule
 
 
 * SIMTools working axis:
@@ -346,7 +346,7 @@ The total percentage of all DOFs (Degrees of Freedom) assigned to a single hardw
 ### 3. Phase Integrity
 Axis 2 utilizes inverted Roll and Sway values to achieve the necessary differential output for a 2DOF universal-joint pivot.
 
-## LXXIII. Telemetry Configuration: Profile V2.0 (130kg Full-Frame)
+## XV. Telemetry Configuration: Profile V2.0 (130kg Full-Frame)
 
 Following initial seat-trials, the telemetry mix has been shifted from 'Static-Angle' (Degree) dominance to 'Dynamic-Force' (Acceleration) dominance. This overcomes the high mechanical inertia of the 130kg frame and provides a sharper, more visceral racing experience.
 
