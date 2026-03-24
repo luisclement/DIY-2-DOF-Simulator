@@ -346,6 +346,12 @@ The total percentage of all DOFs (Degrees of Freedom) assigned to a single hardw
 ### 3. Phase Integrity
 Axis 2 utilizes inverted Roll and Sway values to achieve the necessary differential output for a 2DOF universal-joint pivot.
 
+Motion Type,Current (Safe),Suggested (Immersive),Why?
+Pitch,30%,20%,"Less ""floaty"" on hills"
+Surge,15%,25%,"More ""kick"" on gear shifts"
+Roll,30%,15%,"Reduces the ""tippy"" boat feel"
+Sway,15%,30%,Better G-force simulation
+Heave,10%,10%,Keep it for road texture
 
 
 
