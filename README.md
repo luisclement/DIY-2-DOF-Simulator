@@ -327,8 +327,8 @@ By centering at 0°, the lever operates in the "Torque Peak" zone. This minimize
 ### 3. Safety Buffers
 Mechanical hard-stops are located at -46° and +60°. Software limits in SMC3 (Max Limits) are set to 20° below/above horizontal, providing a 26° "Crush Zone" to protect the 4080 frame and rod ends from collision during accidental runaway scenarios.
 
-SIMTools working axis:
-<img width="931" height="509" alt="image" src="https://github.com/user-attachments/assets/7df1eb69-ec36-4d61-8bf6-49ddf3796e65" />
+* SIMTools working axis:
+<img width="927" height="506" alt="image" src="https://github.com/user-attachments/assets/2aec4761-6a5e-4ea2-ac75-dd7cb4aef0f6" />
 
 
 
