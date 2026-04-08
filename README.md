@@ -31,8 +31,8 @@ This repository contains the documentation and design decisions for a high-perfo
 
 ## 3. Electrical & Power System
 ### Motors
-* [cite_start]**Decision:** **L-faster 24V 350W Brushed Gear Motors (120 RPM)**[cite: 169].
-* [cite_start]**Reasoning:** We prioritized the 120 RPM version over the 75 RPM version to ensure the rig is fast enough for "washout" effects and rapid turbulence[cite: 51, 64]. [cite_start]These motors feature a 17mm keyed shaft, which provides a reliable mechanical connection for the motor levers[cite: 191].
+* **Decision:** **L-faster 24V 350W Brushed Gear Motors (120 RPM)**[cite: 169].
+* **Reasoning:** We prioritized the 120 RPM version over the 75 RPM version to ensure the rig is fast enough for "washout" effects and rapid turbulence. [cite_start]These motors feature a 17mm keyed shaft, which provides a reliable mechanical connection for the motor levers[cite: 191].
 
 ### Power Supply (PSU)
 * [cite_start]**Decision:** **24V 50A (1200W)** switching power supply[cite: 159, 162].
@@ -47,7 +47,7 @@ This repository contains the documentation and design decisions for a high-perfo
 
 ## 4. Wiring & Connectivity
 * [cite_start]**Wire Gauge:** **12 AWG** for all power-carrying lines[cite: 170].
-* [cite_start]**Connectors:** **XT60 or XT90** connectors for the motor-to-driver interface[cite: 201].
+* [cite_start]**Connectors:** **XT60** connectors for the motor-to-driver interface[cite: 201].
 * [cite_start]**Ferrules:** **4mm² (AWG 12) wire ferrules** for all terminal connections[cite: 217].
 * [cite_start]**Reasoning:** I decided to **crimp** these ferrules rather than solder them[cite: 217, 218]. [cite_start]In a high-vibration environment like a motion rig, a mechanical crimp is less likely to fatigue and snap than a solder joint[cite: 218]. [cite_start]The XT-series connectors ensure a high-current, secure connection that won't vibrate loose[cite: 201].
 
