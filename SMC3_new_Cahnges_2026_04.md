@@ -13,3 +13,11 @@ The standard `analogRead()` calls in the main motor update loop have been replac
 ### Before:
 ```cpp
 Feedback1 = analogRead(FeedbackPin1);
+
+After (1.8x Magnification):
+We target the center 569 units of the POT (range 227 to 796) and scale it to the full 1024 units (0-1023).
+
+C++
+// 1.8X Magnification Logic
+Feedback1 = map(analogRead(FeedbackPin1), 227, 796, 0, 1023);
+Feedback1 = constrain(Feedback1, 0, 1023);
