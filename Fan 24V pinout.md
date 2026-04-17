@@ -1,0 +1,1 @@
+Electrical Pinout (4-Pin PWM)Noctua follows the standard Intel/AMD pin-assignment for these fans, though the voltage on Pin 2 is 24V instead of the typical 12V found in home PCs.Pin #Wire ColorFunctionDescription1BlackGNDGround2YellowVccPower (24V DC)3GreenTachoRPM Signal (Speed Monitoring)4BluePWMSpeed Control Signal
