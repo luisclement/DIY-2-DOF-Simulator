@@ -57,3 +57,12 @@ Because the Potentiometer is wired to the **Black (Clutch)** wire, it appears as
 ---
 
 *Documented by DIY Sim Racing Community - 2026*
+
+
+Pin,Function,Wiring
+1,Ground (GND),Common ground for all 3 buttons
+2,Signal 1,Button 1
+3,Signal 2,Button 2
+4,Signal 3,Button 3
+
+
