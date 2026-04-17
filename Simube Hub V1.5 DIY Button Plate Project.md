@@ -1,0 +1,67 @@
+# 🏁 Simube Hub V1.5 DIY Button Plate Project
+
+This documentation details the custom wiring and configuration for a GT3-style button plate using the **Simube Hub V1.5** (STM32 revision). This setup utilizes the 6-pin expansion port for an analog ABS/TCS potentiometer and an extra push button.
+
+---
+
+## 🔌 6-Pin Expansion Port Mapping (JST PH 2.0)
+
+The following pinout has been verified for the **Simube V1.5** via multimeter testing. Note that this revision may differ from standard Fanatec spec.
+
+| Pin | Wire Color | Role | Component Connection |
+| :--- | :--- | :--- | :--- |
+| 1 | **Red** | Digital Input | Optional Extra Button (Not Used) |
+| 2 | **Black** | **Analog Signal (Clutch)** | **Potentiometer Middle Leg (Wiper)** |
+| 3 | **Yellow** | Shifter Signal | *Already connected to Shifters* |
+| 4 | **Green** | **Button Signal** | **New Push Button (Terminal A)** |
+| 5 | **Blue** | **Ground (GND)** | **Shared Ground** (Tap for Pot & Button) |
+| 6 | **White** | **3.3V Power (VCC)** | **Potentiometer Outer Leg (Power)** |
+
+---
+
+## 🛠️ Hardware Connection Guide
+
+### 1. 10k Linear Potentiometer (ABS/TCS)
+* **Middle Leg (Wiper):** Solder to the **Black** wire.
+* **Outer Leg (Power):** Solder to the **White** wire (3.3V).
+* **Outer Leg (Ground):** Solder to the **Blue** wire (Shared Ground).
+* *Note: If the signal is inverted (Right = 0%), swap the Blue and White wire positions on the outer legs.*
+
+### 2. Custom Push Button
+* **Terminal A:** Solder to the **Green** wire.
+* **Terminal B:** Solder to the **Blue** wire (Shared Ground).
+
+### 3. 4-Pin Cluster Ports (Buttons 1-6)
+Standard 4-pin JST ZH 1.5mm mapping:
+* **Pin 1:** Ground (Common)
+* **Pins 2, 3, 4:** Individual Button Signals
+
+---
+
+## ⚙️ Software Configuration
+
+### SimHub Setup (Assetto Corsa Competizione)
+Because the Potentiometer is wired to the **Black (Clutch)** wire, it appears as an analog axis. To use it for discrete GT3 settings:
+
+1. Open **SimHub** > **Controls Mapper**.
+2. Identify the **Clutch Axis**.
+3. Enable the **"Axis to Buttons"** feature.
+4. Divide the axis into **12 segments** (Positions 1-12).
+5. Map these segments to **Virtual Buttons**.
+6. In **ACC**, map those Virtual Buttons to **ABS +/-** or **TC +/-**.
+
+### Troubleshooting
+* **Shielding:** Ensure the **Black (Analog)** wire is well-insulated. Proximity to the gold aluminum casing may cause signal noise if the wire is bare.
+* **Button Logic:** The **Green** wire triggers the "Secondary Paddle" signal in the Fanatec Control Panel. Use this for high-frequency actions like **Flash Lights** or **Pit Limiter**.
+
+---
+
+*Documented by DIY Sim Racing Community - 2026*
+
+
+Pin,Function,Wiring
+1,Ground (GND),Common ground for all 3 buttons
+2,Signal 1,Button 1
+3,Signal 2,Button 2
+4,Signal 3,Button 3
+
